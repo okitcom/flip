@@ -1,24 +1,25 @@
 buildscript {
     repositories {
-        mavenCentral()
+        jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.7.+'
+        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
     }
 }
 
-apply plugin: 'android-library'
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
 
-group 'com.tekle.oss.android'
-version '1.0'
+group='com.github.okitcom'
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
 }
 
 android {
-    compileSdkVersion 7
-    buildToolsVersion "19.0.0"
+    compileSdkVersion 21
+    buildToolsVersion "23.0.3"
 
     sourceSets {
         main {
@@ -44,6 +45,3 @@ android {
         release.setRoot('build-types/release')
     }
 }
-
-task wrapper(type: Wrapper) { gradleVersion = '1.9' }
-
